@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.jaats.agrovehicledriver">
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+
+    <application
+        android:name=".app.App"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".activity.LanguageChoose"></activity>
+        <!-- Remove this to remove Fabric -->
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="54c260049943bced1377b0eb132a9b68687ba073" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDU2i2j6Kk3l4q_kVI-8x5zuJYIjkZXMsE" />
+        <!--
+     Set custom default icon. This is used when no icon is set for incoming notification messages.
+     See README(https://goo.gl/l4GJaQ) for more.
+        -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/logo_splash" />
+        <!--
+             Set color used with incoming notification messages. This is used when no color is set for the incoming
+             notification message. See README(https://goo.gl/6BKBk7) for more.
+        -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorAccent" />
+
+        <service android:name=".services.LaTaxiDriverFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".services.LaTaxiDriverFirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
+        <activity
+            android:name=".activity.SplashActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.BaseAppCompatNoDrawerActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.BaseAppCompatActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.WelcomeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme.DarkStatusBar"></activity>
+        <activity
+            android:name=".activity.RegistrationActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize"></activity>
+        <activity
+            android:name=".activity.LoginActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/LoginTheme"
+            android:windowSoftInputMode="stateHidden|adjustResize"></activity>
+        <activity
+            android:name=".activity.ForgotPasswordActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/LoginTheme"
+            android:windowSoftInputMode="stateHidden|adjustResize"></activity>
+        <activity
+            android:name=".activity.OtpVerificationActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"></activity>
+        <activity
+            android:name=".activity.DriverLicenceTypeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/LoginTheme.DarkStatusBar"></activity>
+        <activity
+            android:name=".activity.LegalConsentActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/LoginTheme.DarkStatusBar"></activity>
+        <activity
+            android:name=".activity.DriverDocumentsActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.ProfilePhotoUploadActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/LoginTheme.DarkStatusBar"></activity>
+        <activity
+            android:name=".activity.HomeActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.DocumentUploadActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/LoginTheme.DarkStatusBar"></activity>
+        <activity
+            android:name=".activity.TripDetailsActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.TripHistoryActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.PayStatementsActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.RiderFeedbackActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.ProTipsActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.HelpActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.HelpListActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.DocumentsActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.SettingsActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.AboutActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.ProfileActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/LoginTheme.DarkStatusBar"
+            android:windowSoftInputMode="stateHidden|adjustResize"></activity>
+        <activity
+            android:name=".activity.EditVehicleDetailsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/LoginTheme.DarkStatusBar"
+            android:windowSoftInputMode="stateHidden|adjustResize"></activity>
+        <activity
+            android:name=".activity.SoftwareLicenseActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.MapLicenseActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.AccessibilityActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.TripHelpActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.TripSummaryActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.RequestConfirmationActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.OnTripActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.MobileVerificationActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize"></activity>
+    </application>
+
+</manifest>
